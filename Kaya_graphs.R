@@ -60,19 +60,6 @@ plot(
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 library(ggplot2)
 
 ## GG PLOT
@@ -122,14 +109,6 @@ ggplot(long_data, aes(x = Year, y = Value, color = Country)) +
     color = "Region"
   ) +
   theme_minimal()
-
-
-
-
-
-
-
-
 
 
 
@@ -208,46 +187,6 @@ ggplot(brazil_recent, aes(x = Year, y = Population/1000000)) +
        x = "Year",
        y = "Population (millions of people)") +
   theme_minimal()
-
-# 
-# future_years <- data.frame(Year = 2023:2050)
-# future_years$Year0 <- future_years$Year - 1960
-# 
-# # Predict exponential population
-# future_years$Population_exp <- predict(model_exp, newdata = future_years) * 1e6
-# 
-# 
-# 
-# 
-# brazil_long <- brazil_long %>%
-#   mutate(Year0 = Year - 1960,         # years start at 0
-#          Pop_millions = Population / 1e6)  # scale population
-# 
-# model_linear <- lm(Pop_millions ~ Year, data = brazil_long)
-# model_exp <- nls(Pop_millions ~ a * exp(b * Year0),
-#                  data = brazil_long,
-#                  start = list(a = 70, b = 0.01))  # starting guesses
-# 
-# 
-# future_years <- data.frame(Year = 2023:2050)
-# 
-# # Linear predictions
-# future_years$Population_linear <- predict(model_linear, newdata = future_years)
-# 
-# # Exponential predictions
-# future_years$Population_exp <- predict(model_exp, newdata = future_years)
-# 
-# # Plot
-# ggplot(brazil_long, aes(x = Year, y = Population)) +
-#   geom_line(color = "blue") +
-#   geom_point(color = "red") +
-#   geom_line(data = future_years, aes(x = Year, y = Population_linear), color = "green", linetype = "dashed") +
-#   geom_line(data = future_years, aes(x = Year, y = Population_exp), color = "purple", linetype = "dotted") +
-#   labs(title = "Population of Brazil: Historical and Projected",
-#        x = "Year",
-#        y = "Population") +
-#   theme_minimal()
-
 
 
 
@@ -482,6 +421,7 @@ summary(fit)
 #1.08136795       0.71974390      -0.85152456       0.00935088 
 
 summary(fit)$coefficients[,2]
+
 
 
 
